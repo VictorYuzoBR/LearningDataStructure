@@ -120,16 +120,24 @@ public class Tree {
                     substituto = substituto.getLeft();
                     
                 } 
-                
+                substituto.setLeft(atual.getLeft());
                 if (paiatual != null) {
                     
+                    if (substituto.getRight() == null) {
                     if (substituto.getVal() < paisubs.getVal()) {
                         paisubs.setLeft(null);
                     } else {
                         paisubs.setRight(null);
                     }
-                    
-                    substituto.setLeft(atual.getLeft());
+                    } else {
+                        if (substituto.getVal() < paisubs.getVal()) {
+                        paisubs.setLeft(substituto.getRight());
+                    } else {
+                        paisubs.setRight(substituto.getRight());
+                    }
+                        
+                    }
+                    substituto.setRight(atual.getRight());
                     
                     if (atual.getVal() < paiatual.getVal()) {
                         paiatual.setLeft(substituto);
@@ -140,6 +148,23 @@ public class Tree {
                     
                     return;
                 } else {
+                    
+                    if (substituto.getRight() == null) {
+                    if (substituto.getVal() < paisubs.getVal()) {
+                        paisubs.setLeft(null);
+                    } else {
+                        paisubs.setRight(null);
+                    }
+                    } else {
+                        if (substituto.getVal() < paisubs.getVal()) {
+                        paisubs.setLeft(substituto.getRight());
+                    } else {
+                        paisubs.setRight(substituto.getRight());
+                    }
+                        
+                    }
+                    
+                    substituto.setRight(atual.getRight());
                     
                     this.Root = substituto;
                     
@@ -162,11 +187,23 @@ public class Tree {
                 
                 if (paiatual != null) {
                     
+                    if (substituto.getLeft() == null) {
                     if (substituto.getVal() < paisubs.getVal()) {
                         paisubs.setLeft(null);
                     } else {
                         paisubs.setRight(null);
                     }
+                    } else {
+                        
+                        if (substituto.getVal() < paisubs.getVal()) {
+                        paisubs.setLeft(substituto.getLeft());
+                    } else {
+                        paisubs.setRight(substituto.getLeft());
+                    }
+                        
+                        
+                    }
+                    substituto.setLeft(atual.getLeft());
                     
                     if (atual.getVal() < paiatual.getVal()) {
                         paiatual.setLeft(substituto);
@@ -178,6 +215,25 @@ public class Tree {
                     
                 } else {
                  
+                     if (substituto.getLeft() == null) {
+                    if (substituto.getVal() < paisubs.getVal()) {
+                        paisubs.setLeft(null);
+                    } else {
+                        paisubs.setRight(null);
+                    }
+                    } else {
+                        
+                        if (substituto.getVal() < paisubs.getVal()) {
+                        paisubs.setLeft(substituto.getLeft());
+                    } else {
+                        paisubs.setRight(substituto.getLeft());
+                    }
+                        
+                        
+                    }
+                    
+                     substituto.setLeft(atual.getLeft());
+                    
                  this.Root = substituto;
                  
              }
